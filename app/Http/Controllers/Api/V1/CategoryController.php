@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use Illuminate\Support\Str;
-use Knuckles\Scribe\Attributes\Endpoint;
 use OpenApi\Annotations as OA;
 
 /**
@@ -40,7 +39,7 @@ class CategoryController extends Controller
 
     public function show(Category $category)
     {
-        abort_if(!auth()->user()->tokenCan('categories-show'), 403);
+        //abort_if(!auth()->user()->tokenCan('categories-show'), 403);
 
         return new CategoryResource($category);
     }
